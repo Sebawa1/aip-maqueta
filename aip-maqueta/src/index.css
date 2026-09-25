@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-corp-dark: #0B1F3A;
+  --color-corp-navy: #17365D;
+  --color-corp-accent: #00A6C8;
+  --color-corp-bg: #F4F7FB;
+  --color-corp-card: #FFFFFF;
+  --color-status-ok: #35A853;
+  --color-status-warn: #F5A623;
+  --color-status-nok: #D64541;
+  --color-status-gray: #7A8793;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, system-ui, sans-serif;
+  background-color: #F4F7FB;
+  color: #0B1F3A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* Screen transitions */
+.screen-enter {
+  animation: screenIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes screenIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.modal-enter {
+  animation: modalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.panel-enter {
+  animation: panelIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Status pulsing */
+@keyframes statusPing {
+  0%   { transform: scale(1); opacity: 0.8; }
+  70%  { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.status-ping {
+  animation: statusPing 2s ease-out infinite;
+}
+
+@keyframes liveDot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.live-pulse {
+  animation: liveDot 1.8s ease-in-out infinite;
+}
+
+/* Network nodes animation for landing */
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33%       { transform: translateY(-14px) translateX(6px); }
+  66%       { transform: translateY(8px) translateX(-4px); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes floatC {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  40%       { transform: translateY(12px) translateX(-8px); }
+  80%       { transform: translateY(-6px) translateX(4px); }
+}
+
+.node-a { animation: floatA 7s ease-in-out infinite; }
+.node-b { animation: floatB 5s ease-in-out infinite; }
+.node-c { animation: floatC 9s ease-in-out infinite; }
+
+@keyframes connectionFlow {
+  0%   { stroke-dashoffset: 200; opacity: 0.2; }
+  50%  { opacity: 0.7; }
+  100% { stroke-dashoffset: 0; opacity: 0.2; }
+}
+
+.conn-line {
+  stroke-dasharray: 8 6;
+  animation: connectionFlow 4s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #C5CDD5; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #7A8793; }
+
+/* Card hover */
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(11,31,58,0.12);
+}
+
+/* Sidebar item */
+.sidebar-item {
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.sidebar-item:hover {
+  background: rgba(255,255,255,0.08);
+}
+.sidebar-item.active {
+  background: rgba(0,166,200,0.18);
+  color: #00A6C8;
+}
+
+/* Button transitions */
+.btn {
+  transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Scenario bar */
+.scenario-tab {
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+/* Tech screen style */
+.tech-screen {
+  background: #101E30;
+  color: #E8EDF2;
+}
+
+/* Tooltip */
+.tooltip-wrap { position: relative; }
+.tooltip-wrap .tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0B1F3A;
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 50;
+}
+.tooltip-wrap:hover .tooltip { opacity: 1; }
