@@ -77,19 +77,20 @@ type ScenarioData = {
     queOcurre: string; impacto: string; accion: string; responsable: string; proxima: string
   }
 }
-
 const SCENARIOS: Record<Scenario, ScenarioData> = {
   partial: {
     label: 'Cobertura parcial actual',
     overallStatus: 'critical',
     overallText: 'Afectación detectada en DNS. DHCP y Tránsito en incorporación.',
     domains: {
-      internet:    { status: 'warning',       text: 'Monitoreo disponible parcialmente', note: 'DNS activo. DHCP y Tránsito en incorporación.' },
-      conectividad:{ status: 'elevating',     text: 'Indicadores en definición' },
-      serviciosTI: { status: 'elevating',     text: 'Coordinación con equipos responsables' },
-      dataCenter:  { status: 'elevating',     text: 'Definición de indicadores en curso' },
+      internet:    { status: 'warning',      text: 'Monitoreo disponible parcialmente', note: 'DNS activo. DHCP y Tránsito en incorporación.' },
+      conectividad:{ status: 'elevating',    text: 'Indicadores en definición' },
+      serviciosTI: { status: 'elevating',    text: 'Coordinación con equipos responsables' },
+      dataCenter:  { status: 'elevating',    text: 'Definición de indicadores en curso' },
       telefonia:   { status: 'incorporating', text: 'Información pendiente' },
-      internos:    { status: 'elevating',     text: 'Netcracker y Microsoft AX en evaluación' },
+      internos:    { status: 'elevating',    text: 'Netcracker y Microsoft AX en evaluación' },
+      redesSociales:{ status: 'ok',          text: 'Operación normal' },
+      callCenter:  { status: 'warning',      text: 'Tiempos de espera elevados en Zona Sur' },
     },
     situacion: {
       servicio: 'Internet', componente: 'DNS',
@@ -138,6 +139,8 @@ const SCENARIOS: Record<Scenario, ScenarioData> = {
       dataCenter:  { status: 'ok', text: 'Operación normal' },
       telefonia:   { status: 'ok', text: 'Operación normal' },
       internos:    { status: 'ok', text: 'Operación normal' },
+      redesSociales:{ status: 'ok', text: 'Operación normal' },
+      callCenter:  { status: 'ok', text: 'Operación normal' },
     },
     situacion: null,
     internet: { dns: 'ok', dhcp: 'ok', transito: 'ok' },
@@ -179,6 +182,8 @@ const SCENARIOS: Record<Scenario, ScenarioData> = {
       dataCenter:  { status: 'ok',      text: 'Operación normal' },
       telefonia:   { status: 'ok',      text: 'Operación normal' },
       internos:    { status: 'ok',      text: 'Operación normal' },
+      redesSociales:{ status: 'warning', text: 'Menciones inusuales detectadas' },
+      callCenter:  { status: 'warning', text: 'Aumento de volumen de llamadas' },
     },
     situacion: {
       servicio: 'Internet', componente: 'DNS',
@@ -227,6 +232,8 @@ const SCENARIOS: Record<Scenario, ScenarioData> = {
       dataCenter:  { status: 'ok',       text: 'Operación normal' },
       telefonia:   { status: 'ok',       text: 'Operación normal' },
       internos:    { status: 'ok',       text: 'Operación normal' },
+      redesSociales:{ status: 'critical', text: 'Publicaciones preventivas activas' },
+      callCenter:  { status: 'critical', text: 'IVR de contingencia activado' },
     },
     situacion: {
       servicio: 'Internet', componente: 'DNS',
