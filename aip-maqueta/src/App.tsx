@@ -438,27 +438,15 @@ function LoginScreen({ onLogin, scenario, onScenarioChange }: {
                 Panel de Control<br />
                 <span style={{ color: '#00A6C8' }}>de Crisis</span>
               </h1>
-              <p style={{ fontSize: 16, color: '#8BADC8', lineHeight: 1.6, margin: '0 0 36px', maxWidth: 380 }}>
-                Visibilidad unificada para una toma de decisiones rápida durante situaciones de contingencia operacional.
-              </p>
+            
               <div style={{ display: 'flex', gap: 20 }}>
-                {[
-                  { n: '6', l: 'Dominios monitoreados' },
-                  { n: '<10s', l: 'Para identificar afectación' },
-                  { n: '24/7', l: 'Monitoreo continuo' },
-                ].map(({ n, l }) => (
-                  <div key={l}>
-                    <div style={{ fontSize: 22, fontWeight: 800, color: '#00A6C8' }}>{n}</div>
-                    <div style={{ fontSize: 11, color: '#6A8099', lineHeight: 1.4, maxWidth: 80 }}>{l}</div>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
 
           {/* Bottom */}
           <div style={{ fontSize: 11, color: '#3A5575' }}>
-            {fmtDate(now)} · Plataforma corporativa interna
+
           </div>
         </div>
       </div>
@@ -557,10 +545,7 @@ function LoginScreen({ onLogin, scenario, onScenarioChange }: {
             </button>
           </form>
 
-          <p style={{ textAlign: 'center', fontSize: 11, color: '#B0BBC5', marginTop: 28, lineHeight: 1.5 }}>
-            Plataforma interna corporativa · Acceso restringido<br />
-            Solo usuarios autorizados
-          </p>
+
         </div>
 
       </div>
