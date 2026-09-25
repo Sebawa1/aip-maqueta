@@ -398,41 +398,24 @@ function LoginScreen({ onLogin, scenario, onScenarioChange }: {
       }}>
         {/* Abstract SVG composition */}
         <svg viewBox="0 0 940 900" preserveAspectRatio="xMidYMid slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
-          {/* Large background circle — cyan */}
           <circle cx="820" cy="120" r="380" fill="#00A6C8" opacity="0.12" />
-          {/* Medium circle — teal-green */}
           <circle cx="820" cy="120" r="240" fill="#00A6C8" opacity="0.15" />
-          {/* Core glowing circle */}
           <circle cx="820" cy="120" r="120" fill="#00A6C8" opacity="0.25" />
-
-          {/* Curve arc top-right */}
           <path d="M 600 0 Q 940 300 940 700" stroke="#00A6C8" strokeWidth="2" fill="none" opacity="0.25" />
           <path d="M 700 0 Q 940 280 940 900" stroke="#00A6C8" strokeWidth="1" fill="none" opacity="0.15" />
-
-          {/* Large circle bottom-left */}
           <circle cx="80" cy="820" r="280" fill="#17365D" opacity="0.5" />
           <circle cx="80" cy="820" r="160" fill="#1A3D6A" opacity="0.6" />
-
-          {/* Accent shape — amber/yellow oval */}
           <ellipse cx="360" cy="800" rx="180" ry="60" fill="#F5A623" opacity="0.12" transform="rotate(-20 360 800)" />
           <ellipse cx="360" cy="800" rx="100" ry="34" fill="#F5A623" opacity="0.18" transform="rotate(-20 360 800)" />
-
-          {/* Green accent circles */}
           <circle cx="180" cy="280" r="90" fill="#35A853" opacity="0.10" />
           <circle cx="180" cy="280" r="48" fill="#35A853" opacity="0.14" />
-
-          {/* Small accent dots */}
           <circle cx="460" cy="420" r="6" fill="#00A6C8" opacity="0.6" />
           <circle cx="500" cy="360" r="4" fill="#35A853" opacity="0.5" />
           <circle cx="540" cy="460" r="3" fill="#F5A623" opacity="0.6" />
           <circle cx="400" cy="500" r="5" fill="#00A6C8" opacity="0.4" />
           <circle cx="350" cy="350" r="8" fill="#00A6C8" opacity="0.2" />
-
-          {/* Diagonal line accents */}
           <line x1="0" y1="600" x2="400" y2="200" stroke="#00A6C8" strokeWidth="1" opacity="0.1" />
           <line x1="0" y1="700" x2="300" y2="300" stroke="#35A853" strokeWidth="0.8" opacity="0.08" />
-
-          {/* Concentric arc lines around main circle */}
           <circle cx="820" cy="120" r="300" stroke="#00A6C8" strokeWidth="1" fill="none" opacity="0.1" />
           <circle cx="820" cy="120" r="420" stroke="#00A6C8" strokeWidth="1" fill="none" opacity="0.07" />
           <circle cx="820" cy="120" r="540" stroke="#00A6C8" strokeWidth="0.8" fill="none" opacity="0.05" />
@@ -486,22 +469,8 @@ function LoginScreen({ onLogin, scenario, onScenarioChange }: {
         alignItems: 'center', justifyContent: 'center', padding: '48px 48px',
         position: 'relative',
       }}>
-        {/* Scenario demo selector */}
-        <div style={{ position: 'absolute', top: 16, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-          <span style={{ fontSize: 9, color: '#C5CDD5', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Escenario prototipo</span>
-          <div style={{ display: 'flex', gap: 4 }}>
-            {(['partial','normal','degradation','crisis'] as Scenario[]).map(s => (
-              <button key={s} onClick={() => onScenarioChange(s)} style={{
-                padding: '2px 8px', borderRadius: 12, border: `1px solid ${scenario === s ? '#00A6C8' : '#E4EBF2'}`,
-                background: scenario === s ? '#F0FAFD' : 'transparent',
-                color: scenario === s ? '#00A6C8' : '#B0BBC5',
-                fontSize: 9, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit',
-              }}>
-                {s === 'partial' ? 'Parcial' : s === 'normal' ? 'Normal' : s === 'degradation' ? 'Degrad.' : 'Crisis'}
-              </button>
-            ))}
-          </div>
-        </div>
+        
+        {/* SE ELIMINÓ EL BLOQUE "Escenario prototipo" DE AQUÍ */}
 
         <div style={{ width: '100%', maxWidth: 340 }}>
           {/* Form header */}
@@ -509,8 +478,9 @@ function LoginScreen({ onLogin, scenario, onScenarioChange }: {
             <div style={{ width: 44, height: 44, borderRadius: 12, background: '#F0FAFD', border: '1.5px solid #A0DFF0', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
               <Icon name="shield" size={22} color="#00A6C8" />
             </div>
-            <h2 style={{ margin: '0 0 6px', fontSize: 26, fontWeight: 800, color: '#0B1F3A', letterSpacing: '-0.01em' }}>Bienvenido</h2>
-            <p style={{ margin: 0, fontSize: 13, color: '#7A8793' }}>Panel de Control de Crisis</p>
+            {/* Aquí cambiamos el texto a "Panel de Control" */}
+            <h2 style={{ margin: '0 0 6px', fontSize: 26, fontWeight: 800, color: '#0B1F3A', letterSpacing: '-0.01em' }}>Panel de Control</h2>
+            <p style={{ margin: 0, fontSize: 13, color: '#7A8793' }}>Inicia sesión para continuar</p>
           </div>
 
           {/* Form */}
@@ -593,17 +563,12 @@ function LoginScreen({ onLogin, scenario, onScenarioChange }: {
           </p>
         </div>
 
-        {/* Footer */}
-        <div style={{ position: 'absolute', bottom: 14, left: 0, right: 0, textAlign: 'center', fontSize: 9, color: '#D0D8DF' }}>
-          Prototipo de experiencia | Datos simulados para validación visual
-        </div>
       </div>
 
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   )
 }
-
 // ─── Sidebar ──────────────────────────────────────────────────────────────────
 const NAV_ITEMS = [
   { key: 'dashboard',    label: 'Panel general',      icon: 'home',       screen: 'dashboard'  as Screen },
@@ -857,13 +822,17 @@ function Footer() {
 // ─── SCREEN 2: Dashboard ──────────────────────────────────────────────────────
 function DashboardScreen({ scenario, onNavigate, onPanel, onRefresh }: { scenario: Scenario; onNavigate: (s: Screen) => void; onPanel: (p: Panel) => void; onRefresh: () => void }) {
   const sd = SCENARIOS[scenario]
+  
+  // Añadimos Redes Sociales y Call Center aquí
   const domains = [
-    { key: 'internet',     title: 'Internet',           icon: 'internet',   onClick: () => onNavigate('internet') },
-    { key: 'conectividad', title: 'Conectividad',       icon: 'network',    onClick: undefined },
-    { key: 'serviciosTI',  title: 'Servicios TI',       icon: 'server',     onClick: undefined },
-    { key: 'dataCenter',   title: 'Data Center',        icon: 'datacenter', onClick: undefined },
-    { key: 'telefonia',    title: 'Telefonía y TV',     icon: 'phone',      onClick: undefined },
-    { key: 'internos',     title: 'Servicios internos', icon: 'settings',   onClick: undefined },
+    { key: 'internet',      title: 'Internet',           icon: 'internet',   onClick: () => onNavigate('internet') },
+    { key: 'conectividad',  title: 'Conectividad',       icon: 'network',    onClick: undefined },
+    { key: 'serviciosTI',   title: 'Servicios TI',       icon: 'server',     onClick: undefined },
+    { key: 'dataCenter',    title: 'Data Center',        icon: 'datacenter', onClick: undefined },
+    { key: 'telefonia',     title: 'Telefonía y TV',     icon: 'phone',      onClick: undefined },
+    { key: 'internos',      title: 'Servicios internos', icon: 'settings',   onClick: undefined },
+    { key: 'redesSociales', title: 'Redes Sociales',     icon: 'star',       onClick: undefined }, // Nuevo
+    { key: 'callCenter',    title: 'Call Center',        icon: 'phone',      onClick: undefined }, // Nuevo
   ]
   return (
     <AppShell current="dashboard" scenario={scenario} onNavigate={onNavigate}
@@ -1323,12 +1292,17 @@ function AIPanel({ scenario, onClose }: { scenario: Scenario; onClose: () => voi
             <strong>Nota:</strong> Las recomendaciones son informativas. La decisión final corresponde al Comité de Crisis.
           </div>
           {[
-            { t: 'Resumen automático', i: 'star', c: <p style={{ margin: 0, fontSize: 13, color: '#0B1F3A', lineHeight: 1.6 }}>{sit?`Se detecta ${sd.overallStatus==='critical'?'una afectación crítica':'una degradación'} en el servicio DNS. ${sit.situacion}. El alcance comprende ${sit.alcance}.`:'Todos los servicios operan dentro de los parámetros normales.'}</p> },
-            { t: 'Ámbitos relacionados', i: 'network', c: <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>{['Infraestructura → Componentes DNS','Calidad → Experiencia de navegación','Capacidad → Redistribución de tráfico'].map(s => <div key={s} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 10px', background: '#F4F7FB', borderRadius: 7, fontSize: 12, color: '#4A6080' }}><div style={{ width: 6, height: 6, borderRadius: '50%', background: '#00A6C8', flexShrink: 0 }} />{s}</div>)}</div> },
-            { t: 'Posible impacto', i: 'alert', c: <p style={{ margin: 0, fontSize: 13, color: '#0B1F3A', lineHeight: 1.6 }}>{sit?.impacto??'Sin impacto estimado en el estado actual.'}</p> },
-            { t: 'Preguntas sugeridas', i: 'chevronRight', c: <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>{['¿Cuántos clientes están potencialmente afectados?','¿Existe un tiempo estimado de resolución?','¿Se han activado protocolos de contingencia?','¿Hay servicios dependientes en riesgo?'].map(q => <div key={q} style={{ padding: '8px 12px', background: '#F4F7FB', borderRadius: 8, fontSize: 12, color: '#17365D', borderLeft: '3px solid #00A6C8', lineHeight: 1.4 }}>{q}</div>)}</div> },
-            { t: 'Acciones recomendadas', i: 'check', c: <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>{(sit?['Confirmar estado con responsable técnico','Evaluar necesidad de comunicación a clientes','Revisar protocolo de respuesta activo']:['Continuar monitoreo estándar','Verificar cobertura de indicadores pendientes']).map((a,i) => <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, fontSize: 12, color: '#0B1F3A', lineHeight: 1.5 }}><div style={{ width: 18, height: 18, borderRadius: '50%', background: '#00A6C8', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}><Icon name="check" size={10} color="#fff" /></div>{a}</div>)}</div> },
-          ].map(({ t, i, c }) => (
+  { t: 'Resumen automático', i: 'star', c: <p style={{ margin: 0, fontSize: 13, color: '#0B1F3A', lineHeight: 1.6 }}>{sit?`Se detecta ${sd.overallStatus==='critical'?'una afectación crítica':'una degradación'} en el servicio DNS. ${sit.situacion}. El alcance comprende ${sit.alcance}.`:'Todos los servicios operan dentro de los parámetros normales.'}</p> },
+  
+  // NUEVO: Sección Predictiva
+  { t: 'Análisis Predictivo', i: 'eye', c: <div style={{ fontSize: 12, color: '#4A6080', lineHeight: 1.5, background: '#F0FAFD', padding: 10, borderRadius: 8, borderLeft: '3px solid #00A6C8' }}>Proyección a 30 mins: Alta probabilidad (82%) de saturación en Call Center por consultas de clientes en Zona Sur. Riesgo de latencia en servicios dependientes.</div> },
+  
+  // NUEVO: Sección Preventiva
+  { t: 'Medidas Preventivas', i: 'shield', c: <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>{['Desviar tráfico de Zona Sur a servidores de respaldo', 'Activar IVR informativo preventivo en Call Center', 'Publicar aviso de intermitencia en RRSS'].map((s,i) => <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 10px', background: '#F4F7FB', borderRadius: 7, fontSize: 12, color: '#4A6080' }}><div style={{ width: 6, height: 6, borderRadius: '50%', background: '#F5A623', flexShrink: 0 }} />{s}</div>)}</div> },
+  
+  { t: 'Posible impacto', i: 'alert', c: <p style={{ margin: 0, fontSize: 13, color: '#0B1F3A', lineHeight: 1.6 }}>{sit?.impacto??'Sin impacto estimado en el estado actual.'}</p> },
+  { t: 'Acciones recomendadas', i: 'check', c: <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>{(sit?['Confirmar estado con responsable técnico','Evaluar necesidad de comunicación a clientes','Revisar protocolo de respuesta activo']:['Continuar monitoreo estándar','Verificar cobertura de indicadores pendientes']).map((a,i) => <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, fontSize: 12, color: '#0B1F3A', lineHeight: 1.5 }}><div style={{ width: 18, height: 18, borderRadius: '50%', background: '#00A6C8', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}><Icon name="check" size={10} color="#fff" /></div>{a}</div>)}</div> },
+]}.map(({ t, i, c }) => (
             <div key={t} style={{ marginBottom: 20 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
                 <Icon name={i} size={13} color="#00A6C8" />
