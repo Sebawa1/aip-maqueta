@@ -1291,26 +1291,26 @@ function AIPanel({ scenario, onClose }: { scenario: Scenario; onClose: () => voi
           <div style={{ background: '#FFF8ED', border: '1px solid #FAD9A0', borderRadius: 8, padding: '10px 12px', marginBottom: 18, fontSize: 11, color: '#8A5800', lineHeight: 1.5 }}>
             <strong>Nota:</strong> Las recomendaciones son informativas. La decisión final corresponde al Comité de Crisis.
           </div>
-          {[
-  { t: 'Resumen automático', i: 'star', c: <p style={{ margin: 0, fontSize: 13, color: '#0B1F3A', lineHeight: 1.6 }}>{sit?`Se detecta ${sd.overallStatus==='critical'?'una afectación crítica':'una degradación'} en el servicio DNS. ${sit.situacion}. El alcance comprende ${sit.alcance}.`:'Todos los servicios operan dentro de los parámetros normales.'}</p> },
-  
-  // NUEVO: Sección Predictiva
-  { t: 'Análisis Predictivo', i: 'eye', c: <div style={{ fontSize: 12, color: '#4A6080', lineHeight: 1.5, background: '#F0FAFD', padding: 10, borderRadius: 8, borderLeft: '3px solid #00A6C8' }}>Proyección a 30 mins: Alta probabilidad (82%) de saturación en Call Center por consultas de clientes en Zona Sur. Riesgo de latencia en servicios dependientes.</div> },
-  
-  // NUEVO: Sección Preventiva
-  { t: 'Medidas Preventivas', i: 'shield', c: <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>{['Desviar tráfico de Zona Sur a servidores de respaldo', 'Activar IVR informativo preventivo en Call Center', 'Publicar aviso de intermitencia en RRSS'].map((s,i) => <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 10px', background: '#F4F7FB', borderRadius: 7, fontSize: 12, color: '#4A6080' }}><div style={{ width: 6, height: 6, borderRadius: '50%', background: '#F5A623', flexShrink: 0 }} />{s}</div>)}</div> },
-  
-  { t: 'Posible impacto', i: 'alert', c: <p style={{ margin: 0, fontSize: 13, color: '#0B1F3A', lineHeight: 1.6 }}>{sit?.impacto??'Sin impacto estimado en el estado actual.'}</p> },
-  { t: 'Acciones recomendadas', i: 'check', c: <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>{(sit?['Confirmar estado con responsable técnico','Evaluar necesidad de comunicación a clientes','Revisar protocolo de respuesta activo']:['Continuar monitoreo estándar','Verificar cobertura de indicadores pendientes']).map((a,i) => <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, fontSize: 12, color: '#0B1F3A', lineHeight: 1.5 }}><div style={{ width: 18, height: 18, borderRadius: '50%', background: '#00A6C8', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}><Icon name="check" size={10} color="#fff" /></div>{a}</div>)}</div> },
-]}.map(({ t, i, c }) => (
-            <div key={t} style={{ marginBottom: 20 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
-                <Icon name={i} size={13} color="#00A6C8" />
-                <span style={{ fontSize: 11, fontWeight: 700, color: '#7A8793', textTransform: 'uppercase', letterSpacing: '0.07em' }}>{t}</span>
-              </div>
-              {c}
+          {/* SECCIÓN CORREGIDA: Nota cómo el array termina en ] y el .map ocurre antes de cerrar la llave } al final */}
+        {[
+          { t: 'Resumen automático', i: 'star', c: <p style={{ margin: 0, fontSize: 13, color: '#0B1F3A', lineHeight: 1.6 }}>{sit?`Se detecta ${sd.overallStatus==='critical'?'una afectación crítica':'una degradación'} en el servicio DNS. ${sit.situacion}. El alcance comprende ${sit.alcance}.`:'Todos los servicios operan dentro de los parámetros normales.'}</p> },
+          
+          { t: 'Análisis Predictivo', i: 'eye', c: <div style={{ fontSize: 12, color: '#4A6080', lineHeight: 1.5, background: '#F0FAFD', padding: 10, borderRadius: 8, borderLeft: '3px solid #00A6C8' }}>Proyección a 30 mins: Alta probabilidad (82%) de saturación en Call Center por consultas de clientes en Zona Sur. Riesgo de latencia en servicios dependientes.</div> },
+          
+          { t: 'Medidas Preventivas', i: 'shield', c: <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>{['Desviar tráfico de Zona Sur a servidores de respaldo', 'Activar IVR informativo preventivo en Call Center', 'Publicar aviso de intermitencia en RRSS'].map((s,i) => <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 10px', background: '#F4F7FB', borderRadius: 7, fontSize: 12, color: '#4A6080' }}><div style={{ width: 6, height: 6, borderRadius: '50%', background: '#F5A623', flexShrink: 0 }} />{s}</div>)}</div> },
+          
+          { t: 'Posible impacto', i: 'alert', c: <p style={{ margin: 0, fontSize: 13, color: '#0B1F3A', lineHeight: 1.6 }}>{sit?.impacto??'Sin impacto estimado en el estado actual.'}</p> },
+          
+          { t: 'Acciones recomendadas', i: 'check', c: <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>{(sit?['Confirmar estado con responsable técnico','Evaluar necesidad de comunicación a clientes','Revisar protocolo de respuesta activo']:['Continuar monitoreo estándar','Verificar cobertura de indicadores pendientes']).map((a,i) => <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, fontSize: 12, color: '#0B1F3A', lineHeight: 1.5 }}><div style={{ width: 18, height: 18, borderRadius: '50%', background: '#00A6C8', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}><Icon name="check" size={10} color="#fff" /></div>{a}</div>)}</div> },
+        ].map(({ t, i, c }) => (
+          <div key={t} style={{ marginBottom: 20 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
+              <Icon name={i as any} size={14} color="#00A6C8" />
+              <h4 style={{ margin: 0, fontSize: 13, fontWeight: 700, color: '#0B1F3A', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t}</h4>
             </div>
-          ))}
+            {c}
+          </div>
+        ))}
           <div style={{ background: '#F4F7FB', border: '1px solid #E4EBF2', borderRadius: 10, padding: 14, marginBottom: 16 }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
               <span style={{ fontSize: 12, fontWeight: 700, color: '#0B1F3A' }}>Nivel de confianza</span>
