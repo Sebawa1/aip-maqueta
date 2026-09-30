@@ -744,9 +744,7 @@ function DomainCard({ title, icon, status, text, note, onClick }: {
       </div>
       <p style={{ margin: '0 0 0 6px', fontSize: 13, color: '#4A6080', lineHeight: 1.5 }}>{text}</p>
       {note && <p style={{ margin: '6px 0 0 6px', fontSize: 11, color: '#7A8793', lineHeight: 1.4 }}>{note}</p>}
-      {onClick && <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginTop: 12, paddingLeft: 6, color: '#00A6C8', fontSize: 12, fontWeight: 600 }}>
-        Ver detalle <Icon name="chevronRight" size={13} color="#00A6C8" />
-      </div>}
+
     </div>
   )
 }
