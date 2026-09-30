@@ -808,7 +808,7 @@ function SituacionPrincipal({ sd, scenario, onNavigate }: { sd: ScenarioData; sc
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
 function Footer() {
-  return <div style={{ textAlign: 'center', padding: '24px 0 8px', fontSize: 10, color: '#B0BBC5' }}>Prototipo de experiencia | Datos simulados para validación visual, excepto donde se indique información operacional disponible</div>
+  return <div style={{ textAlign: 'center', padding: '24px 0 8px', fontSize: 10, color: '#B0BBC5' }}>Prototipo</div>
 }
 
 // ─── SCREEN 2: Dashboard ──────────────────────────────────────────────────────
@@ -936,11 +936,10 @@ function InternetScreen({ scenario, onNavigate, onPanel, onRefresh }: { scenario
             isActive={false}
             dims={{ infra: 'pending', calidad: 'pending', capacidad: 'pending' }}
           />
-          <ServiceCard name="DHCP" status={inet.dhcp} text="Integración de información en preparación." />
-          <ServiceCard name="Tránsito IP" status={inet.transito} text="Integración de información en preparación." />
+          
         </div>
         <div style={{ background: '#F4F7FB', border: '1px solid #E4EBF2', borderRadius: 10, padding: '12px 18px', fontSize: 13, color: '#4A6080' }}>
-          <strong>Cobertura actual del panel:</strong> DNS disponible. DHCP y Tránsito pendientes de integración.
+          
         </div>
       </div>
       <Footer />
@@ -978,9 +977,9 @@ function DNSExecScreen({ scenario, onNavigate, onPanel, onRefresh }: { scenario:
   }
 
   const dimTooltips: Record<string, string> = {
-    Infraestructura: 'Indica si los componentes necesarios para prestar el servicio se encuentran operativos',
-    Calidad:         'Indica si el servicio funciona correctamente y con tiempos de respuesta adecuados',
-    Capacidad:       'Indica si existen recursos suficientes para mantener la operación actual',
+    Infraestructura: '',
+    Calidad:         '',
+    Capacidad:       '',
   }
 
   return (
@@ -1209,7 +1208,6 @@ function DNSTechScreen({ scenario, onNavigate }: { scenario: Scenario; onNavigat
               </tbody>
             </table>
           </div>
-          <div style={{ fontSize: 10, color: '#2A3A4A', textAlign: 'center', paddingBottom: 8 }}>Prototipo de experiencia | Datos simulados para validación visual, excepto donde se indique información operacional disponible</div>
         </main>
       </div>
     </div>
