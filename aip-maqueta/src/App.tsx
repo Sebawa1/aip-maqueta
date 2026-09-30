@@ -79,7 +79,7 @@ type ScenarioData = {
 }
 const SCENARIOS: Record<Scenario, ScenarioData> = {
   partial: {
-    label: 'Cobertura parcial actual',
+    label: 'Crisis',
     overallStatus: 'critical',
     overallText: 'Afectación detectada en DNS. DHCP y Tránsito en incorporación.',
     domains: {
@@ -172,7 +172,7 @@ const SCENARIOS: Record<Scenario, ScenarioData> = {
     },
   },
   degradation: {
-    label: 'Degradación',
+    label: 'Degradación (warning)',
     overallStatus: 'warning',
     overallText: 'Internet con degradación parcial en Zona Sur',
     domains: {
@@ -222,7 +222,7 @@ const SCENARIOS: Record<Scenario, ScenarioData> = {
     },
   },
   crisis: {
-    label: 'Crisis',
+    label: 'test',
     overallStatus: 'critical',
     overallText: 'Afectación crítica en Internet — Protocolo de crisis activo',
     domains: {
